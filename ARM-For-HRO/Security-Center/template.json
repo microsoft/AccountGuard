@@ -1,0 +1,165 @@
+{
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "pricingTierVMs": {
+            "type": "string",
+            "allowedValues": [
+                "Standard",
+                "Free"
+            ],
+            "defaultValue": "Standard",
+            "metadata": {
+                "description": "Specify the Azure Security Center pricing tier for VMs"
+            }
+        },
+        "pricingTierSqlServers": {
+            "type": "string",
+            "allowedValues": [
+                "Standard",
+                "Free"
+            ],
+            "defaultValue": "Standard",
+            "metadata": {
+                "description": "Specify the Azure Security Center pricing tier for SQL Servers"
+            }
+        },
+        "pricingTierAppServices": {
+            "type": "string",
+            "allowedValues": [
+                "Standard",
+                "Free"
+            ],
+            "defaultValue": "Standard",
+            "metadata": {
+                "description": "Specify the Azure Security Center pricing tier for App Services"
+            }
+        },
+        "autoProvisioning":{
+            "type": "string",
+            "allowedValues": [
+                "On",
+                "Off"
+            ],
+            "defaultValue": "On",
+            "metadata": {
+                "description": "Turn automatic deployment by ASC of the MMA (OMS VM extension) on or off"
+            }
+        },
+        "workspaceName": {
+            "type": "string",
+            "metadata": {
+                "description": "Specify the name of your custom Log Analytics workspace to collect ASC data."
+            }
+        },
+        "workspaceSubscriptionId": {
+            "type": "string",
+            "metadata": {
+                "description": "Specify the subscriptionId where the custom Log Analytics workspace is deployed."
+            }
+        },
+        "workspaceResourceGroup": {
+            "type": "string",
+            "metadata": {
+                "description": "Specify the resource group where the custom Log Analytics workspace is deployed."
+            }
+        },
+        "emailSecurityContact":{
+            "type": "string",
+            "metadata": {
+                "description": "email address of the contact, in the form of john@doe.com"
+            }
+        },
+        "phoneSecurityContact":{
+            "type": "string",
+            "metadata": {
+                "description": "phone number of the Security Contact"
+            }
+        },
+        "alertNotifications":{
+            "type": "string",
+            "allowedValues": [
+                "On",
+                "Off"
+            ],
+            "defaultValue": "On",
+            "metadata": {
+                "description": "Send alert notifications to Security Contact"
+            }
+        },
+        "alertsToAdmin":{
+            "type": "string",
+            "allowedValues": [
+                "On",
+                "Off"
+            ],
+            "defaultValue": "On",
+            "metadata": {
+                "description": "Send alert notifications to Admins"
+            }
+        }
+    },
+    "resources": [
+        {
+            "type": "Microsoft.Security/pricings",
+            "apiVersion": "2017-08-01-preview",
+            "name": "VirtualMachines",
+            "properties": {
+            "pricingTier": "[parameters('pricingTierVMs')]"
+            }
+        },
+        {
+            "type": "Microsoft.Security/pricings",
+            "apiVersion": "2017-08-01-preview",
+            "name": "SqlServers",
+            "properties": {
+            "pricingTier": "[parameters('pricingTierSqlServers')]"
+            }
+        },
+        {
+            "type": "Microsoft.Security/pricings",
+            "apiVersion": "2017-08-01-preview",
+            "name": "AppServices",
+            "properties": {
+            "pricingTier": "[parameters('pricingTierAppServices')]"
+            }
+        },
+        {
+            "type": "Microsoft.Security/autoProvisioningSettings",
+            "name": "default",
+            "apiVersion": "2017-08-01-preview",
+            "properties":{
+                "autoProvision": "[parameters('autoProvisioning')]"
+            }
+        },
+        {
+            "type": "Microsoft.Security/workspaceSettings",
+            "apiVersion": "2017-08-01-preview",
+            "name": "default",
+            "properties": {
+                "workspaceId": "[concat('/subscriptions/', parameters('workspaceSubscriptionId'), '/resourceGroups/', parameters('workspaceResourceGroup'), '/providers/Microsoft.OperationalInsights/workspaces/', parameters('workspaceName'))]",
+                "scope": "[subscription().id]"
+            }
+        },
+        {
+            "type": "Microsoft.Security/",
+            "apiVersion": "2017-08-01-preview",
+            "name": "default",
+            "properties": {
+
+            }
+        },
+        {
+            "type": "Microsoft.Security/securityContacts",
+            "name": "default1",
+            "apiVersion": "2017-08-01-preview",
+            "properties":{
+            "email": "[parameters('emailSecurityContact')]",
+            "phone": "[parameters('phoneSecurityContact')]",
+            "alertNotifications": "[parameters('alertNotifications')]",
+            "alertsToAdmins": "[parameters('alertsToAdmin')]"
+            }
+        }
+    ],
+    "outputs": {}
+}

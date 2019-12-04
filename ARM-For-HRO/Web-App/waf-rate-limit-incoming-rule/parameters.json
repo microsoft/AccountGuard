@@ -1,0 +1,24 @@
+{
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+      "wafPolicyName": {
+        "value": null
+      },
+      "wafMode": {
+        "value": "Detection"
+      },
+      "rateLimitDurationInMinutes": {
+        "value": 1
+      },
+      "rateLimitThreshold": {
+        "value": null
+      },
+      "rateLimitAction": {
+        "value": "Log"
+      },
+      "ipMatch": {
+        "value": null
+      }
+    }
+  }

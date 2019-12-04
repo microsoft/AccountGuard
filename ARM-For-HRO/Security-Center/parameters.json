@@ -1,0 +1,39 @@
+{
+  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "pricingTierVMs": {
+      "value": "Free"
+    },
+    "pricingTierSqlServers": {
+      "value": "Standard"
+    },
+    "pricingTierAppServices": {
+      "value": "Standard"
+    },
+    "autoProvisioning": {
+      "value": "On"
+    },
+    "workspaceName": {
+      "value": null
+    },
+    "workspaceSubscriptionId": {
+      "value": null
+    },
+    "workspaceResourceGroup": {
+      "value": null
+    },
+    "emailSecurityContact": {
+      "value": null
+    },
+    "phoneSecurityContact": {
+      "value": null
+    },
+    "alertNotifications": {
+      "value": "On"
+    },
+    "alertsToAdmin": {
+      "value": "On"
+    }
+  }
+}
