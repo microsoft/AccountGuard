@@ -3,16 +3,48 @@
     "contentVersion": "1.0.0.0",
     "parameters": {
       "wafPolicyName": {
-        "value": null
+        "value": "aisdemowafparam"
       },
       "wafMode": {
         "value": "Detection"
       },
       "httpRule1": {
-        "value": null
-      },
-      "httpRule2": {
-        "value": null
-      }
+        "value": {
+            "name": "Rule1",
+            "priority": 1,
+            "enabledState": "Enabled",
+            "ruleType": "MatchRule",
+            "matchConditions": [
+                {
+                    "matchVariable": "RequestHeader",
+                    "operator": "Contains",
+                    "selector": "User-Agent",
+                    "matchValue": [
+                        "Chrome/69.0.3497"
+                    ]
+                }
+            ],
+            "action": "Block"
+        }
+    },
+    "httpRule2": {
+        "value": {
+            "name": "Rule2",
+            "priority": 2,
+            "enabledState": "Enabled",
+            "ruleType": "MatchRule",
+            "matchConditions": [
+                {
+                    "matchVariable": "QueryString",
+                    "operator": "Contains",
+                    "selector": "",
+                    "matchValue": [
+                        "IamAbot"
+                    ]
+                }
+            ],
+            "action": "Block"
+        }
+    }  
     }
   }
