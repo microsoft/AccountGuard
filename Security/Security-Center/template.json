@@ -142,14 +142,6 @@
             }
         },
         {
-            "type": "Microsoft.Security/",
-            "apiVersion": "2017-08-01-preview",
-            "name": "default",
-            "properties": {
-
-            }
-        },
-        {
             "type": "Microsoft.Security/securityContacts",
             "name": "default1",
             "apiVersion": "2017-08-01-preview",
