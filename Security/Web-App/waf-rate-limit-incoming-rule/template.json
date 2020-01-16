@@ -1,69 +1,69 @@
 {
     "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
-    "parameters": {       
+    "parameters": {
         "wafPolicyName": {
-            "type": "string",
+            "type": "String",
             "metadata": {
                 "description": "The name of the WAF policy"
             }
         },
         "wafMode": {
-            "type": "string",
+            "defaultValue": "Detection",
             "allowedValues": [
                 "Detection",
                 "Prevention"
             ],
-            "defaultValue": "Detection",
+            "type": "String",
             "metadata": {
                 "description": "Describes if it is in detection mode or prevention mode at policy level."
             }
         },
         "rateLimitDurationInMinutes": {
-            "type": "int",
+            "defaultValue": 1,
             "allowedValues": [
                 1,
                 5
             ],
-            "defaultValue": 1,
+            "type": "Int",
             "metadata": {
                 "description": "Defines rate limit duration. Default - 1 minute."
             }
         },
         "rateLimitThreshold": {
-            "type": "int",
+            "type": "Int",
             "metadata": {
                 "description": "Defines rate limit thresold."
             }
         },
         "rateLimitAction": {
-            "type": "string",
+            "defaultValue": "Log",
             "allowedValues": [
                 "Allow",
                 "Block",
                 "Log"
             ],
-            "defaultValue": "Log",
+            "type": "String",
             "metadata": {
                 "description": "Type of Action based on the match filter. Must be Allow, Block or Log."
             }
         },
         "ipMatch": {
-            "type": "string",
+            "type": "String",
             "metadata": {
                 "description": "The operator to be matched."
             }
         }
     },
     "variables": {
-        "wafLocation": "global"        
+        "wafLocation": "global"
     },
     "resources": [
         {
-            "apiVersion": "2019-03-01",
             "type": "Microsoft.Network/FrontDoorWebApplicationFirewallPolicies",
+            "apiVersion": "2019-03-01",
             "name": "[parameters('wafPolicyName')]",
-            "location": "[variables('wafLocation')]",            
+            "location": "[variables('wafLocation')]",
             "properties": {
                 "policySettings": {
                     "mode": "[parameters('wafMode')]",
@@ -92,7 +92,7 @@
                     ]
                 }
             }
-        }        
+        }
     ],
     "outputs": {}
 }
