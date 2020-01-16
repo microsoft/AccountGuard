@@ -102,26 +102,32 @@
     "resources": [
         {
             "type": "Microsoft.Security/pricings",
-            "apiVersion": "2017-08-01-preview",
+            "apiVersion": "2018-06-01",
             "name": "VirtualMachines",
-            "properties": {
-            "pricingTier": "[parameters('pricingTierVMs')]"
+            "properties":{
+                "pricingTier": "[parameters('pricingTierVMs')]"
             }
         },
         {
             "type": "Microsoft.Security/pricings",
-            "apiVersion": "2017-08-01-preview",
+            "apiVersion": "2018-06-01",
             "name": "SqlServers",
-            "properties": {
-            "pricingTier": "[parameters('pricingTierSqlServers')]"
+            "dependsOn": [
+                "[concat('Microsoft.Security/pricings/AppServices')]"
+            ],
+            "properties":{
+                "pricingTier": "[parameters('pricingTierSqlServers')]"
             }
         },
         {
             "type": "Microsoft.Security/pricings",
-            "apiVersion": "2017-08-01-preview",
+            "apiVersion": "2018-06-01",
             "name": "AppServices",
-            "properties": {
-            "pricingTier": "[parameters('pricingTierAppServices')]"
+            "dependsOn": [
+                "[concat('Microsoft.Security/pricings/VirtualMachines')]"
+            ],
+            "properties":{
+                "pricingTier": "[parameters('pricingTierAppServices')]"
             }
         },
         {
