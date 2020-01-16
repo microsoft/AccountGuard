@@ -11,6 +11,7 @@ Geo filtering
 
 This template is to help setup a rule to Allow/Block/Log geographic specifc web
 app traffic.
+
 [Country codes list which we can use for Geo Filtering](https://msdn.microsoft.com/library/mt761717.aspx)
 
 Deployment Instructions
