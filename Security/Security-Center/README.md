@@ -14,6 +14,8 @@ Centre (ASC).
 Deployment Instructions
 -----------------------
 
+If you want to deploy this template, please make sure you target the subscription instead of a resource group, since ASC lives at the subscription level, not at the resource group level.
+
 ### Azure PowerShell CmdLet
 
 -   Download the ARM template and parameter file.
@@ -30,10 +32,12 @@ Deployment Instructions
 -   In Azure PowerShell Command prompt move to the location where template and
     parameter files are located using *CD* command
 
--   Run the given below command to create the Virtual machine.
+-   Run the given below command to deploy the template.
+
+-   Change the name and location values according to your requirement.
 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ powershell
-New-AzResourceGroupDeployment -Name deploymentname -ResourceGroupName Resourcegroupname -TemplateFile template.json -TemplateParameterFile parameters.json
+New-AzDeployment -Name deploymentname -Location EastUS -TemplateFile template.json -TemplateParameterFile parameters.json
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 ### Deploy from Azure Cloud shell
@@ -55,14 +59,14 @@ New-AzResourceGroupDeployment -Name deploymentname -ResourceGroupName Resourcegr
 -   In Command prompt move to the location where template and parameter files
     are located using *CD* command
 
--   Run the given below command to create the Virtual machine.
+-   Run the given below command to deploy the template.
+
+-   Change the name and location values according to your requirement. 
 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ powershell
-az group deployment create  --name deploymentname  --resource-group Resourcegroupname  --template-file template.json  --parameters parameters.json
+az deployment create  --name deploymentname  --location eastus  --template-file template.json  --parameters parameters.json
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 ### Deploy To Azure
 
-<a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FMicrosoft%2FAccountGuard%2Fmaster%2FSecurity%2FSecurity-Center%2Ftemplate.json" target="_blank">
-    <img src="https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/1-CONTRIBUTION-GUIDE/images/deploytoazure.png" title="Open Azure Portal and Deploy Template"/> 
-</a>
+Subscription level template deployment can not be done by Azure Portal.
