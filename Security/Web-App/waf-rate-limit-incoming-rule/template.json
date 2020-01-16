@@ -21,15 +21,19 @@
         },
         "rateLimitDurationInMinutes": {
             "type": "int",
+            "allowedValues": [
+                1,
+                2
+            ]
             "defaultValue": 1,
             "metadata": {
-                "description": "Defines rate limit duration. Default - 1 minute."
+                "description": "Defines the rate counting duration."
             }
         },
         "rateLimitThreshold": {
             "type": "int",
             "metadata": {
-                "description": "Defines rate limit thresold."
+                "description": "Defines the maximum number of requests allowed within the defined rate limit duration."
             }
         },
         "rateLimitAction": {
