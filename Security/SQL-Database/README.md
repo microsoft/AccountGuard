@@ -231,8 +231,8 @@ Connect-AzAccount
 # If there are multiple subscriptions, choose the one where AKV is created:
 #Set-AzContext -SubscriptionId "subscription ID"
 
-# Install the preview version of Az.Sql PowerShell package 1.1.1-preview if you are running this PowerShell locally (uncomment below):
-# Install-Module -Name Az.Sql -RequiredVersion 1.1.1-preview -AllowPrerelease -Force
+# Install the latest version of Az.Sql PowerShell package if you are running this PowerShell locally (uncomment below):
+# Install-Module -Name Az.Sql -RequiredVersion 2.1.2 -Force
 
 # 1. Create Resource and setup Azure Key Vault (skip if already done)
 
