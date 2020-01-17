@@ -1,7 +1,7 @@
 {
     "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
-    "parameters": {        
+    "parameters": {
         "wafPolicyName": {
             "type": "string",
             "metadata": {
@@ -19,7 +19,7 @@
                 "description": "Describes if it is in detection mode or prevention mode at policy level."
             }
         },
-        "IPfilteringAction": {
+        "IPFilteringAction": {
             "type": "string",
             "allowedValues": [
                 "Allow",
@@ -38,7 +38,7 @@
         }
     },
     "variables": {
-        "wafLocation": "global"        
+        "wafLocation": "global"
     },
     "resources": [
         {
@@ -67,12 +67,12 @@
                                     ]
                                 }
                             ],
-                            "action": "[parameters('IPfilteringAction')]"
+                            "action": "[parameters('IPFilteringAction')]"
                         }
                     ]
                 }
             }
-        }        
+        }
     ],
     "outputs": {}
 }
