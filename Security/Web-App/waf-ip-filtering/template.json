@@ -33,7 +33,7 @@
         "IPMatch": {
             "type": "string",
             "metadata": {
-                "description": "The operator to be matched."
+                "description": "IP address or range to be matched."
             }
         }
     },
