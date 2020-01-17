@@ -35,7 +35,7 @@ Deployment Instructions
 -   In Azure PowerShell Command prompt move to the location where template and
     parameter files are located using *CD* command
 
--   Run the given below command to create the Virtual machine.
+-   Run the given below command to deploy the template.
 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ powershell
 New-AzResourceGroupDeployment -Name deploymentname -ResourceGroupName Resourcegroupname -TemplateFile template.json -TemplateParameterFile parameters.json
@@ -60,7 +60,7 @@ New-AzResourceGroupDeployment -Name deploymentname -ResourceGroupName Resourcegr
 -   In Command prompt move to the location where template and parameter files
     are located using *CD* command
 
--   Run the given below command to create the Virtual machine.
+-   Run the given below command to deploy the template.
 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ powershell
 az group deployment create  --name deploymentname  --resource-group Resourcegroupname  --template-file template.json  --parameters parameters.json
