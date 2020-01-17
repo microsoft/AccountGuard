@@ -27,13 +27,13 @@
             ],
             "type": "Int",
             "metadata": {
-                "description": "Defines rate limit duration. Default - 1 minute."
+                "description": "Defines the rate limit counting duration. Allowed values are 1 and 5 minutes."
             }
         },
         "rateLimitThreshold": {
             "type": "Int",
             "metadata": {
-                "description": "Defines rate limit thresold."
+                "description": "Defines the maximum number of requests allowed within the defined rate limit duration."
             }
         },
         "rateLimitAction": {
@@ -48,10 +48,10 @@
                 "description": "Type of Action based on the match filter. Must be Allow, Block or Log."
             }
         },
-        "ipMatch": {
+        "IPMatch": {
             "type": "String",
             "metadata": {
-                "description": "The operator to be matched."
+                "description": "IP address or range to be matched."
             }
         }
     },
@@ -83,7 +83,7 @@
                                     "matchVariable": "RemoteAddr",
                                     "operator": "IPMatch",
                                     "matchValue": [
-                                        "[parameters('ipMatch')]"
+                                        "[parameters('IPMatch')]"
                                     ]
                                 }
                             ],
