@@ -2,73 +2,50 @@
     "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
-        "location": {
-            "value": "eastus"
+        "diagnosticsStorageAccountType": {
+            "value": "Standard_LRS"
         },
-        "networkInterfaceName": {
-            "value": "eppvmdemo743"
+        "publicIPAddressName": {
+            "value": "eppvmdemo-ip"
+        },
+        "publicIPAddressType": {
+            "value": "Dynamic"
         },
         "networkSecurityGroupName": {
-            "value": "eppvmdemo-nsg"
+            "value": "default-nsg"
         },
-        "networkSecurityGroupRules": {
-            "value": [
-                {
-                    "name": "RDP",
-                    "properties": {
-                        "priority": 300,
-                        "protocol": "TCP",
-                        "access": "Allow",
-                        "direction": "Inbound",
-                        "sourceAddressPrefix": "*",
-                        "sourcePortRange": "*",
-                        "destinationAddressPrefix": "*",
-                        "destinationPortRange": "3389"
-                    }
-                }
-            ]
+        "virtualNetworkName": {
+            "value": "eppvmdemo-vnet"
+        },
+        "addressPrefix": {
+            "value": "10.0.0.0/16"
         },
         "subnetName": {
             "value": "default"
         },
-        "virtualNetworkName": {
-            "value": "RGEPPVM-vnet"
+        "subnetPrefix": {
+            "value": "10.0.0.0/24"
         },
-        "addressPrefixes": {
-            "value": [
-                "10.0.0.0/24"
-            ]
+        "networkInterfaceName": {
+            "value": "eppvmdemo-nic"
         },
-        "subnets": {
-            "value": [
-                {
-                    "name": "default",
-                    "properties": {
-                        "addressPrefix": "10.0.0.0/24"
-                    }
-                }
-            ]
-        },
-        "publicIpAddressName": {
-            "value": "eppvmdemo-ip"
-        },
-        "publicIpAddressType": {
-            "value": "Dynamic"
-        },
-        "publicIpAddressSku": {
-            "value": "Basic"
-        },
-        "virtualMachineName": {
+        "vmName": {
             "value": "eppvmdemo"
         },
-        "virtualMachineRG": {
-            "value": "RGEPPVM"
+        "vmSize": {
+            "value": "Standard_DS1_v2"
         },
         "osDiskType": {
             "value": "Premium_LRS"
         },
-        "virtualMachineSize": {
-            "value": "Standard_DS1_v2"
+        "imagePublisher": {
+            "value": "MicrosoftWindowsServer"
+        },
+        "imageOffer": {
+            "value": "WindowsServer"
+        },
+        "imageSKU": {
+            "value": "2019-Datacenter"
         },
         "adminUsername": {
             "value": "eppadmin"
@@ -76,35 +53,8 @@
         "adminPassword": {
             "value": null
         },
-        "diagnosticsStorageAccountName": {
-            "value": "rgeppvmdiag"
-        },
-        "diagnosticsStorageAccountId": {
-            "value": "Microsoft.Storage/storageAccounts/rgeppvmdiag"
-        },
-        "diagnosticsStorageAccountType": {
-            "value": "Standard_LRS"
-        },
-        "diagnosticsStorageAccountKind": {
-            "value": "Storage"
-        },
-        "autoShutdownStatus": {
-            "value": "Enabled"
-        },
-        "autoShutdownTime": {
-            "value": "19:00"
-        },
-        "autoShutdownTimeZone": {
-            "value": "UTC"
-        },
-        "autoShutdownNotificationStatus": {
-            "value": "Enabled"
-        },
-        "autoShutdownNotificationLocale": {
-            "value": "en"
-        },
-        "autoShutdownNotificationEmail": {
-            "value": "someone@someemail.com"
+        "location": {
+            "value": "eastus"
         }
     }
 }
