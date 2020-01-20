@@ -59,48 +59,48 @@ supported Antimalware configuration settings are allowed.
 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ powershell
 {
-            "name": "microsoft.antimalware-windows-20191118162231",
-            "apiVersion": "2015-01-01",
-            "type": "Microsoft.Resources/deployments",
-            "properties": {
-                "mode": "incremental",
-                "templateLink": {
-                    "uri": "https://gallery.azure.com/artifact/20161101/microsoft.antimalware-windows-arm.1.0.2/Artifacts/MainTemplate.json"
-                },
-                "parameters": {
-                    "vmName": {
-                        "value": "eppvmdemo"
-                    },
-                    "location": {
-                        "value": "eastus"
-                    },
-                    "ExclusionsPaths": {
-                        "value": "c:\\Logs\\"
-                    },
-                    "ExclusionsExtensions": {
-                        "value": "c:\\Logs\\"
-                    },
-                    "RealtimeProtectionEnabled": {
-                        "value": "true"
-                    },
-                    "ScheduledScanSettingsIsEnabled": {
-                        "value": "true"
-                    },
-                    "ScheduledScanSettingsScanType": {
-                        "value": "Full"
-                    },
-                    "ScheduledScanSettingsDay": {
-                        "value": "7"
-                    },
-                    "ScheduledScanSettingsTime": {
-                        "value": "120"
-                    }
-                }
+    "type": "Microsoft.Resources/deployments",
+    "apiVersion": "2015-01-01",
+    "name": "microsoft.antimalware-windows-deployment",
+    "dependsOn": [
+        "[concat('Microsoft.Compute/virtualMachines/', parameters('vmName'))]"
+    ],
+    "properties": {
+        "mode": "incremental",
+        "templateLink": {
+            "uri": "https://gallery.azure.com/artifact/20161101/microsoft.antimalware-windows-arm.1.0.2/Artifacts/MainTemplate.json"
+        },
+        "parameters": {
+            "vmName": {
+                "value": "[parameters('vmName')]"
             },
-            "dependsOn": [
-                "[concat('Microsoft.Compute/virtualMachines/', parameters('virtualMachineName'))]"
-            ]
+            "location": {
+                "value": "[parameters('location')]"
+            },
+            "ExclusionsPaths": {
+                "value": "c:\\Logs\\"
+            },
+            "ExclusionsExtensions": {
+                "value": "c:\\Logs\\"
+            },
+            "RealtimeProtectionEnabled": {
+                "value": "true"
+            },
+            "ScheduledScanSettingsIsEnabled": {
+                "value": "true"
+            },
+            "ScheduledScanSettingsScanType": {
+                "value": "Full"
+            },
+            "ScheduledScanSettingsDay": {
+                "value": "7"
+            },
+            "ScheduledScanSettingsTime": {
+                "value": "120"
+            }
         }
+    }
+}
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
  
