@@ -7,7 +7,7 @@ Introduction
 The purpose of this document is to provide instructions on how to create a storage account in Azure and encrypt the data using secured keys stored in Azure KeyVault. 
 We will be using Azure PowerShell Cmdlets to accomplish this.
 
-Below are the step-by-step instructions and an explanation of each step. You will also find a complete powershell script.
+Below are the step-by-step instructions and an explanation of each step. You will also find a complete powershell script to implement the code in your Azure Infrastruture. 
 
 Instructions
 ------------
