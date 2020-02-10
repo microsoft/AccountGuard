@@ -4,13 +4,10 @@ SECURING THE DATA IN AN AZURE STORAGE ACCOUNT USING CUSTOMER-MANAGED KEYS STORED
 Introduction
 ------------
 
-Purpose of this document is to provide instructions on how to create a storage
-account in Azure and encrypt the data using secured keys stored in Azure
-KeyVault. We will be using Azure PowerShell Cmdlets to accomplish this.
+The purpose of this document is to provide instructions on how to create a storage account in Azure and encrypt the data using secured keys stored in Azure KeyVault. 
+We will be using Azure PowerShell Cmdlets to accomplish this.
 
-We will provide step-by-step instructions on how to accomplish this with an
-explanation of what is being done in a particular step. This will be followed by
-complete script.
+Below are the step-by-step instructions and an explanation of each step. You will also find a complete powershell script.
 
 Instructions
 ------------
@@ -19,6 +16,8 @@ Instructions
 
 First step is to define the Resource group, Storage account name, Key vault
 name, Azure location, SKU and Key name values using variables.
+
+#### Make sure to change the values of the variables
 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ powershell
 ###########variables############
