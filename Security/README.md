@@ -1,2 +1,3 @@
 The documentation and the Azure Resource Management (ARM) templates are to help the Human Rights Organizations and the customers of Defending Democracy Program to improve their security posture. The documentation is to configure Azure services to best meet these organizations’ data security needs tailored to the way they operate around the world. This documentation walks organizations through, for example, how to easily configure secure web applications that might be used by human rights workers in the field to access data stored in Azure.
+
 Please contact accountguard@microsoft.com for any questions or comments.
